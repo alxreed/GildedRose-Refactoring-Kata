@@ -10,10 +10,12 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <java.version>1.8</java.version>
-        <junit.jupiter.version>5.8.2</junit.jupiter.version>
-        <maven.maven-compiler-plugin.version>3.1</maven.maven-compiler-plugin.version>
-        <maven.maven-surefire-plugin.version>3.0.0-M4</maven.maven-surefire-plugin.version>
+        <java.version>25</java.version>
+        <maven.compiler.release>25</maven.compiler.release>
+        <junit.jupiter.version>6.0.0</junit.jupiter.version>
+        <assertj.version>3.27.3</assertj.version>
+        <maven.maven-compiler-plugin.version>3.13.0</maven.maven-compiler-plugin.version>
+        <maven.maven-surefire-plugin.version>3.5.2</maven.maven-surefire-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -24,6 +26,12 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -32,8 +40,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${maven.compiler.release}</release>
                 </configuration>
             </plugin>
             <plugin>
