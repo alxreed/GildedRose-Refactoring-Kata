@@ -3,6 +3,8 @@ package com.gildedrose;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -34,7 +36,7 @@ class UpdateQualityTest {
         Item item = new Item(name, sellIn, quality);
 
         // when one day passes
-        new GildedRose(new Item[] { item }).updateQuality();
+        new GildedRose(List.of(item)).updateQuality();
 
         // then the resulting state matches the captured oracle
         assertThat(item.sellIn).as("sellIn").isEqualTo(expectedSellIn);
